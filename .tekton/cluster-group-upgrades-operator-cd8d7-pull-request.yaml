@@ -198,9 +198,9 @@ spec:
       taskRef:
         params:
         - name: url
-          value: https://github.com/asergienk/operator-foundry.git
+          value: https://github.com/asergienk/konflux-operator-tasks.git
         - name: revision
-          value: add_from_build_stage_support
+          value: update_operator_foundry_image
         - name: pathInRepo
           value: task/fbc-inject-lifecycle-oci-ta/0.1/fbc-inject-lifecycle-oci-ta.yaml
         resolver: git
