@@ -189,7 +189,7 @@ spec:
       - name: CONTEXT
         value: "."
       - name: DOCKERFILE
-        value: $(params.dockerfile)
+        value: .konflux/Dockerfile.catalog
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
