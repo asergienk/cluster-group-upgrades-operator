@@ -187,7 +187,7 @@ spec:
       - name: ociArtifactExpiresAfter
         value: $(params.image-expires-after)
       - name: CONTEXT
-        value: $(params.path-context)
+        value: .
       - name: DOCKERFILE
         value: $(params.dockerfile)
       - name: BUILD_ARGS
