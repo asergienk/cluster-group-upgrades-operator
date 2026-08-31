@@ -19,21 +19,34 @@ metadata:
   namespace: asergien-tenant
 spec:
   params:
-  - name: git-url
-    value: '{{source_url}}'
-  - name: revision
-    value: '{{revision}}'
-  - name: output-image
-    value: quay.io/redhat-user-workloads-stage/asergien-tenant/cluster-group-upgrades-operator-cd8d7:on-pr-{{revision}}
-  - name: image-expires-after
-    value: 5d
-  - name: build-platforms
-    value:
-    - linux/x86_64
-  - name: dockerfile
-    value: Dockerfile.catalog
-  - name: path-context
-    value: .konflux
+    - name: git-url
+      value: '{{source_url}}'
+    - name: revision
+      value: '{{revision}}'
+    - name: output-image
+      value: quay.io/redhat-user-workloads/telco-5g-tenant/topology-aware-lifecycle-manager-5-0:on-pr-{{revision}}
+    - name: image-expires-after
+      value: 5d
+    - name: build-platforms
+      value:
+        - linux/x86_64
+    - name: dockerfile
+      value: Dockerfile
+    - name: build-args-file
+      value: .konflux/container_build_args.conf
+    - name: hermetic
+      value: "true"
+    - name: prefetch-input
+      value: gomod
+    - name: build-source-image
+      value: "true"
+    - name: skip-sast-coverity
+      value: "true"
+    - name: additional-tags
+      value: []
+    - name: additional-labels
+      value:
+        - name=openshift5/topology-aware-lifecycle-manager-rhel9-operator
   pipelineSpec:
     description: |
       This pipeline is ideal for building and verifying [file-based catalogs](https://konflux-ci.dev/docs/end-to-end/building-olm/#building-the-file-based-catalog).
@@ -187,7 +200,7 @@ spec:
       - name: ociArtifactExpiresAfter
         value: $(params.image-expires-after)
       - name: CONTEXT
-        value: "."
+        value: $(params.path-context)
       - name: DOCKERFILE
         value: .konflux/Dockerfile.catalog
       - name: BUILD_ARGS
