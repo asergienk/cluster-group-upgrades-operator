@@ -204,7 +204,7 @@ spec:
       - name: DOCKERFILE
         value: .konflux/Dockerfile.catalog
       - name: CATALOG_PATH
-        value: ".konflux/catalog/topology-aware-lifecycle-manager"
+        value: ".konflux/catalog"
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
