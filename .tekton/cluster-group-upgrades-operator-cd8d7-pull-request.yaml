@@ -203,6 +203,8 @@ spec:
         value: $(params.path-context)
       - name: DOCKERFILE
         value: .konflux/Dockerfile.catalog
+      - name: CATALOG_PATH
+        value: ".konflux/catalog/topology-aware-lifecycle-manager"
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
