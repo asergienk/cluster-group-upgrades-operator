@@ -213,7 +213,7 @@ spec:
       taskRef:
         params:
         - name: url
-          value: https://github.com/konflux-ci/konflux-operator-tasks.git
+          value: https://github.com/asergienk/konflux-operator-tasks.git
         - name: revision
           value: update_operator_foundry_image
         - name: pathInRepo
